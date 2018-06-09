@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MYDAPP front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="fishcore_abi.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+</head>
+
+<body>
+    <div id='cfc'></div>
+    <script>
+
+        window.addEventListener('load', function () {
+            
+            // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+            if (typeof web3 !== 'undefined') {
+                // Use Mist/MetaMask's provider
+                web3js = new Web3(web3.currentProvider);
+            } else {
+                //alert('cannot load web3');
+                web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/yCBWSUS7mbDeBBazCvvK"));
+                // Handle the case where the user doesn't have Metamask installed
+                // Probably show them a message prompting them to install Metamask
+            }
+
+            // Now you can start your app & access web3 freely:
+            startApp()
+
+        })
+
+        function startApp() {
+            var cfcAddress = "0x7c64d7f1d9e74e7f0a4d9a33a6d147cc235ca749";
+            cfc = new web3js.eth.Contract(fishcoreABI, cfcAddress);
+
+            var accountInterval = setInterval(function () {
+                // Check if account has changed
+                if (web3.eth.accounts[0] !== userAccount) {
+                    userAccount = web3.eth.accounts[0];
+                    // Call a function to update the UI with the new account
+                    getFishByOwner(userAccount)
+                        .then(displayFish);
+                }
+            }, 100);
+        }
+
+        function displayFish(ids) {
+            $("#cfc").empty();
+            for (id of ids) {
+                // Look up fish details from our contract. Returns a `fish` object
+                getFishDetails(id)
+                    .then(function (fish) {
+                        // Using ES6's "template literals" to inject variables into the HTML.
+                        // Append each one to our #zombies div
+                        $("#zombies").append(
+                            `<div class="fish">
+                            <ul>
+                                <li>Ready: ${fish.isReady}</li>
+                                <li>Genes: ${fish.genes}</li>
+                                <li>Mom: ${fish.matronId}</li>
+                                <li>Dad: ${fish.sireId}</li>
+                                <li>B-Day: ${fish.birthTime}</li>
+                                <li>Gen: ${fish.generation}</li>
+                                <li>Cooldown: ${fish.cooldownIndex}</li>
+                            </ul>
+                            </div>`
+                        );
+                    });
+            }
+        }
+
+        function getFishDetails(id) {
+            return cfc.methods.getFish(id).call();
+        }
+
+        function getFishByOwner(owner) {
+            return cfc.methods.tokensOfOwner(owner).call();
+        }
+    </script>
+</body>
+
+</html>
