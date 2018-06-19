@@ -42,23 +42,21 @@ function getRareRank($all_shapes,$all_colors){
     $scores = $repeat_shapes * 3 + $repeat_colors * 8;
     $rare = 0;
 
-    // sort
-    if ($scores <= 20 + 11 ){
+     // sort
+     if ($scores <= 20 + 15 ){
         $rare = 1;
-    }else if ($scores < 27+ 11){
+    }else if ($scores < 27+ 15){
         $rare = 2;
-    }else if ($scores < 33+ 11){
+    }else if ($scores < 33+ 15){
         $rare = 3;
-    }else if ($scores < 41+ 11){
+    }else if ($scores < 41+ 15){
         $rare = 4;
-    }else if ($scores < 49+ 11){
+    }else if ($scores < 49+ 15){
         $rare = 5;
-    }else if ($scores < 57+ 11){
+    }else if ($scores < 57+ 15){
         $rare = 6;
-    }else if ($scores < 65+ 11){
+    }else if ($scores >= 57+ 15){
         $rare = 7;
-    }else if ($scores >= 66+ 11){
-        $rare = 8;
     }
 
     return $rare;

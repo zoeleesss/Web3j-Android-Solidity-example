@@ -43,25 +43,72 @@ function getRareRank($all_shapes,$all_colors){
     $rare = 0;
 
     // sort
-    if ($scores <= 20 + 11 ){
+    if ($scores <= 20 + 15 ){
         $rare = 1;
-    }else if ($scores < 27+ 11){
+    }else if ($scores < 27+ 15){
         $rare = 2;
-    }else if ($scores < 33+ 11){
+    }else if ($scores < 33+ 15){
         $rare = 3;
-    }else if ($scores < 41+ 11){
+    }else if ($scores < 41+ 15){
         $rare = 4;
-    }else if ($scores < 49+ 11){
+    }else if ($scores < 49+ 15){
         $rare = 5;
-    }else if ($scores < 57+ 11){
+    }else if ($scores < 57+ 15){
         $rare = 6;
-    }else if ($scores < 65+ 11){
+    }else if ($scores >= 57+ 15){
         $rare = 7;
-    }else if ($scores >= 66+ 11){
-        $rare = 8;
     }
 
     return $rare;
+}
+
+
+
+
+function getColorOfRare($str){
+    $color_r = 0;
+$color_g = 0;
+$color_b = 0;
+    if ($str == "普通") 
+    {
+        $color_r = $color_g = $color_b = 196;
+    }
+    else if($str == "稀有" ) 
+    {
+        $color_r =   $color_b = 50;
+        $color_g = 205;
+    }  // 绿色
+    else if($str == "卓越" ) 
+    {
+        $color_r = 0;
+        $color_g = 178;
+        $color_b = 238;
+    }  // 浅蓝
+
+    else if($str == "史诗") {
+        $color_b = 255;
+    } //深蓝
+    else if($str == "神话") {
+        $color_r = 155;
+        $color_g = 48;
+        $color_b = 255;
+    }  // 紫色
+    else if($str == "传说") {
+        $color_r = 238;
+        $color_g = 106;
+        $color_b = 167;
+    }  // 粉色
+    else if($str == "超神") {
+        $color_r = 238;
+        $color_g = 180;
+        $color_b = 34;
+
+    }      // 金色
+    else if($str == "宇宙之主") {
+        $color_r = 238;
+
+    } // 红色
+    return array($color_r,$color_g,$color_b);
 }
 
 function getRareName($rare){
@@ -129,14 +176,22 @@ for ($i=0;$i<count($parts);$i++)
 
 
 $rare = getRareRank($all_shapes,$all_colors);
-$textcolor = imagecolorallocate($bg, 0, 0, 0);
 
+$rareName = getRareName($rare);
 
-$fontsize = 20;
+list ($color_r,$color_g,$color_b) = getColorOfRare($rareName);
+$textcolor = imagecolorallocate($bg, $color_r, $color_g, $color_b);
+$fontsize = 40;
 // 使用字体 
-$ttf = '../res/fonts/'.'Microsoft-Yahei.ttf';  
-imagettftext($bg,$fontsize,0,450,800,$textcolor,$ttf,'稀有度: '.getRareName($rare));
-
+$ttf = '../res/fonts/'.'Microsoft-Yahei.ttf'; 
+ 
+if ($rareName!="宇宙之主")
+{
+imagettftext($bg,$fontsize,0,450,800,$textcolor,$ttf,$rareName);
+}
+else{
+    imagettftext($bg,80,0,290,900,$textcolor,$ttf,$rareName);
+}
 // Write the string at the top left
 //imagestring($bg, 5, 450, 800, '稀有度 '.$rank, $textcolor);
 

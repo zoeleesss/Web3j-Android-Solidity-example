@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <cniao5.com.cniao5shop.widget.CNiaoToolBar
+        android:id="@id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/icon_back_32px"
+        app:title="钱包创建        "
+        />
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:background="@drawable/selector_view_block"-->
+        <!--android:padding="@dimen/largePadding">-->
+
+
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingTop="@dimen/largePadding"-->
+            <!--android:paddingBottom="@dimen/largePadding"-->
+
+            <!--&gt;-->
+
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="国家或者地区"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="18sp"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--/>-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtCountry"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="中国"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--/>-->
+
+        <!--</RelativeLayout>-->
+        <!--<View-->
+            <!--style="@style/line_vertical"-->
+
+            <!--/>-->
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingTop="@dimen/largePadding"-->
+            <!--android:paddingBottom="@dimen/largePadding"-->
+            <!--android:orientation="horizontal"-->
+            <!--&gt;-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtCountryCode"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="+86"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--android:layout_marginRight="10dp"-->
+
+                <!--/>-->
+
+            <!--<View-->
+                <!--style="@style/line_horizontal"/>-->
+
+            <!--<cniao5.com.cniao5shop.widget.ClearEditText-->
+                <!--android:id="@+id/edittxt_phone"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/editText_base"-->
+                <!--android:hint="请输入常用手机号码"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:inputType="phone"/>-->
+
+
+
+        <!--</LinearLayout>-->
+
+        <!--<View-->
+            <!--style="@style/line_vertical"-->
+
+            <!--/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingTop="@dimen/largePadding"-->
+            <!--android:paddingBottom="@dimen/largePadding"-->
+            <!--android:orientation="horizontal"-->
+            <!--&gt;-->
+
+
+            <!--<TextView-->
+
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="密码"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--android:layout_marginRight="10dp"-->
+
+                <!--/>-->
+
+            <!--<View-->
+                <!--style="@style/line_horizontal"/>-->
+
+            <!--<cniao5.com.cniao5shop.widget.ClearEditText-->
+                <!--android:id="@+id/edittxt_pwd"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/editText_base"-->
+                <!--android:hint="请输入密码"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:inputType="textPassword"/>-->
+
+
+
+        <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/selector_view_block"
+        android:padding="@dimen/largePadding">
+
+
+        <cniao5.com.cniao5shop.widget.ClearEditText
+            android:id="@+id/etxt_pn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_edit_32"
+            android:drawablePadding="20dp"
+            android:hint="输入钱包名"
+            style="@style/editText_base"
+            android:inputType="text"
+            />
+
+        <View
+            style="@style/line_vertical"/>
+
+
+        <cniao5.com.cniao5shop.widget.ClearEditText
+            android:id="@+id/etxt_pwd_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_lock"
+            android:drawablePadding="20dp"
+            android:hint="请输入密码"
+            style="@style/editText_base"
+            android:inputType="textPassword"
+            />
+
+        <cniao5.com.cniao5shop.widget.ClearEditText
+            android:id="@+id/etxt_pwd_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_lock"
+            android:drawablePadding="20dp"
+            android:hint="请重复密码"
+            style="@style/editText_base"
+            android:inputType="textPassword"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击 创建 按钮，表示您同意《云与鱼用户协议》"
+        android:textColor="@color/border_color"
+        android:textSize="12sp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="@dimen/largePadding"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/largePadding"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            android:indeterminateDrawable="@drawable/progressbar"/>
+
+        <Button
+            android:id="@+id/createWalletBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/bigBlueButton"
+            android:text="创 建"
+            android:layout_marginTop="30dp"
+            android:layout_margin="10dp"
+            android:onClick="progressBar_Reg"
+            />
+
+        <Button
+            android:id="@+id/btn_login_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/bigGreyButton"
+            android:text="已有钱包?  导入"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
